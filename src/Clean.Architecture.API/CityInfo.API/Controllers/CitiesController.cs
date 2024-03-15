@@ -1,19 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CityInfo.API.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CityInfo.API.Controllers;
 
 [ApiController]
 [Route("api/cities")]
-public class CitiesController
+public class CitiesController : ControllerBase
 {
   [HttpGet]
-  public JsonResult GetCities()
+  public ActionResult<IEnumerable<CityDto>> GetCities()
   {
-    return new JsonResult(new List<object>
+    return Ok(CitiesDataStore.Current.Cities);
+  }
+
+  [HttpGet("{id}")]
+  public ActionResult<CityDto> GetCity(int id)
+  {
+    var city = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id);
+    if (city == null)
     {
-      new { id = 1, Name = "New Yourk City" },
-      new { id = 2, Name = "Antwerp" }
-    });
+      return NotFound();
+    }
+
+    return Ok(city);
   }
 }
 
