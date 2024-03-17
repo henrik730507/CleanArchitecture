@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options =>
 {
   options.ReturnHttpNotAcceptable = true;
-}).AddXmlDataContractSerializerFormatters();
+}).AddNewtonsoftJson()
+  .AddXmlDataContractSerializerFormatters();
 
 //Extend the problemDetails that consumers get with a response that indicates a problem.
 builder.Services.AddProblemDetails(options =>
