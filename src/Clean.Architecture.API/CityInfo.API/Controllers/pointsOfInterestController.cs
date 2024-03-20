@@ -1,4 +1,5 @@
 ﻿using CityInfo.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace CityInfo.API.Controllers;
 
 [ApiController]
 [Route("api/cities/{cityId}/pointsOfInterest")]
+[Authorize]
 public class PointsOfInterestController : ControllerBase
 {
   private readonly CitiesDataStore _citiesDataStore;

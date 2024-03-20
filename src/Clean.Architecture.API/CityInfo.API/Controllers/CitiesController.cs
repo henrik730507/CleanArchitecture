@@ -1,10 +1,13 @@
 ﻿using CityInfo.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CityInfo.API.Controllers;
 
+
 [ApiController]
 [Route("api/cities")]
+[Authorize]
 public class CitiesController : ControllerBase
 {
   private readonly CitiesDataStore _citiesDataStore;
