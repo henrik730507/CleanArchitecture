@@ -1,4 +1,5 @@
-﻿using CityInfo.API.Models;
+﻿using Asp.Versioning;
+using CityInfo.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CityInfo.API.Controllers;
 
 [ApiController]
-[Route("api/cities/{cityId}/pointsOfInterest")]
+[Route("api/v{version:apiVersion}/cities/{cityId}/pointsofinterest")]
+[ApiVersion("2.0")]
 [Authorize]
 public class PointsOfInterestController : ControllerBase
 {

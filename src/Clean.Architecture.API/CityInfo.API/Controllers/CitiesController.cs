@@ -1,4 +1,5 @@
-﻿using CityInfo.API.Models;
+﻿using Asp.Versioning;
+using CityInfo.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +7,10 @@ namespace CityInfo.API.Controllers;
 
 
 [ApiController]
-[Route("api/cities")]
+[ApiVersion("1.0", Deprecated = true)]
+[ApiVersion("2.0")]
+[Route("api/v{version:apiVersion}/cities")]
+
 [Authorize]
 public class CitiesController : ControllerBase
 {

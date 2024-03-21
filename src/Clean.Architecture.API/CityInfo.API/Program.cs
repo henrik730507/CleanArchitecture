@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Asp.Versioning;
 using CityInfo.API;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.IdentityModel.Tokens;
@@ -46,6 +47,13 @@ builder.Services.AddAuthentication("Bearer")
       };
     }
     );
+
+builder.Services.AddApiVersioning(setupAction =>
+{
+  setupAction.AssumeDefaultVersionWhenUnspecified = true;
+  setupAction.DefaultApiVersion = new ApiVersion(1, 0);
+  setupAction.ReportApiVersions = true;
+}).AddMvc();
 
 var app = builder.Build();
 
