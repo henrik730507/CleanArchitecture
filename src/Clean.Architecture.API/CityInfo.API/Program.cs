@@ -1,5 +1,7 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
 using CityInfo.API;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.IdentityModel.Tokens;
@@ -27,7 +29,13 @@ builder.Services.AddProblemDetails(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(setupAction =>
+{
+  var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+  var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+  setupAction.IncludeXmlComments(xmlCommentsFullPath);
+});
 
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 builder.Services.AddSingleton<CitiesDataStore>();

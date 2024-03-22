@@ -26,7 +26,15 @@ public class CitiesController : ControllerBase
     return Ok(_citiesDataStore.Cities);
   }
 
+  /// <summary>
+  /// Get a city by id
+  /// </summary>
+  /// <param name="id">The id of the city to get</param>
+  /// <returns>An IActionResult</returns>
+  /// <response code="200">Returns the requested city</response>
   [HttpGet("{id}")]
+  [ProducesResponseType(StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status404NotFound)]
   public ActionResult<CityDto> GetCity(int id)
   {
     var city = _citiesDataStore.Cities.FirstOrDefault(x => x.Id == id);
