@@ -1,0 +1,29 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@schema=https
+@hostname=localhost
+@port=7141
+
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6IktldmluIiwiZmFtaWx5X25hbWUiOiJEb2NreCIsImNpdHkiOiJBbnR3ZXJwIiwibmJmIjoxNzExMjk4OTMzLCJleHAiOjE3MTEzMDI1MzMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxNDEiLCJhdWQiOiJjaXR5aW5mb2FwaSJ9.luGm6zjJsqjTNeUXJ366TEIb2QF73ti9h559zoBXIRg
+###
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities
+Accept:application/xml
+
+###
+POST {{schema}}://{{hostname}}:{{port}}/api/v2/cities/1/pointsofinterest
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Père Lachaise",
+    "description": "Famous cemetery where Jim Morrison and Oscar Wilde are buried."
+}
+
+###
+POST {{schema}}://{{hostname}}:{{port}}/api/authentication/authenticate
+Content-Type: application/json
+
+{
+    "username": "KevinDockx",
+    "password": "This is a relatively long sentence that acts as my password"
+}

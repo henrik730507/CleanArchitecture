@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Architecture.UnitTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Architecture.UseCases", "src\Clean.Architecture.UseCases\Clean.Architecture.UseCases.csproj", "{B74A78FF-B79E-4C38-A9C7-084A90990CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityInfo.API", "src\Clean.Architecture.API\CityInfo.API\CityInfo.API.csproj", "{5EF043B9-074A-42E1-B5E9-0989700939AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityInfo.API", "src\Clean.Architecture.API\CityInfo.API\CityInfo.API.csproj", "{5EF043B9-074A-42E1-B5E9-0989700939AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
